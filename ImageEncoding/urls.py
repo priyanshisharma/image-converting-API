@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from ConvertImg.views import image_conversion
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', image_conversion)
 ]
