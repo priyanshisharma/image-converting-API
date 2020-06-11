@@ -19,7 +19,7 @@ class ImageConversionSerializer(serializers.ModelSerializer):
     def save(self):
 
         base64_conversion = base64.b64encode(self.validated_data['image'].read())
-        MD5_hash_string = f'{hashlib.md5(base64_conversion)}'
+        MD5_hash_string = hashlib.md5(base64_conversion).hexdigest()
 
         image = Image(
             input_image=self.validated_data['image'],
